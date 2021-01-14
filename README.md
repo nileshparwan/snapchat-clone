@@ -10,3 +10,5 @@ Firebase authentication
 camera: 
 npm i react-webcam
 
+Front-end
+Material-ui core
