@@ -13,7 +13,7 @@
   height: 50px;
 }
 
-.chats__avatar {
+.chats__header > .chats__avatar {
   height: 25px !important;
   width: 25px !important;
 }
@@ -39,6 +39,11 @@
   padding-left: 8px;
 }
 
+.chats__chatIcon, .chats__searchIcon{
+  color:white;
+  font-size:13px !important;
+}
+
 .chats__posts::-webkit-scrollbar {
   display: none;
 }
@@ -56,4 +61,20 @@
   border-top-left-radius: 10px;
   background-color: white;
   overflow-y: scroll;
+}
+
+.chats__takePicIcon {
+  position: absolute;
+  background-color: white;
+  border-radius: 200px;
+  color: gray;
+  font-size: 40px !important;
+  bottom: 0;
+  left: calc(50% - 20px);
+  transform:(-50%, -50%); 
+  cursor:pointer; 
+}
+
+.chats__takePicIcon:hover{
+  opacity: 0.8; 
 }
