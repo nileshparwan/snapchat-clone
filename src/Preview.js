@@ -80,7 +80,7 @@ function Preview() {
                 <AttachFileIcon />
                 <MusicNoteIcon />
             </div>
-            <img src={cameraImage} alt="image" />
+            <img src={cameraImage} alt="|" />
             <div onClick={sendPost} className="preview__footer">
                 <h2>Send Now</h2>
                 <SendIcon fontSize="small" className="preview__sendIcon" />
