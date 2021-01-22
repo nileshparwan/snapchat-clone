@@ -17,9 +17,11 @@ import SendIcon from '@material-ui/icons/Send';
 import { resetCameraImage, selectCameraImage } from './features/cameraSlice';
 import { db, storage } from './firebase';
 import './Preview.css';
+import { selectUser } from './features/appSlice';
 
 function Preview() {
     const cameraImage = useSelector(selectCameraImage);   // allows us to fetch data from redux
+    const user = useSelector(selectUser);
     const history = useHistory();
     const dispath = useDispatch();
 
@@ -38,7 +40,7 @@ function Preview() {
         const id = uuid();
         const uploadTask = storage.ref(`posts/${id}`).putString(cameraImage, 'data_url');
 
-        uploadTask.on('state_changed', null, 
+        uploadTask.on('state_changed', null,
             (error) => {
                 //error function
                 console.log("error", error);
@@ -54,9 +56,9 @@ function Preview() {
                             db.collection('posts')
                                 .add({
                                     imageUrl: url,
-                                    username: "Koshal",
+                                    username: user.username,
                                     read: false,
-                                    profilePic:"", 
+                                    profilePic: user.profilePic,
                                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
                                 });
                             history.replace('/chats');
