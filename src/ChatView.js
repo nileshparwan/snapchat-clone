@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import "./ChatView.css";
@@ -9,17 +9,17 @@ const ChatView = () => {
     const selectedImage = useSelector(selectSelectedImage);
     const history = useHistory();
 
+    const exit = useCallback(() => {
+        history.push("/chats");
+    }, [history]);
+
     //useEffect protects us in case there is no image on the state. 
     //exit page if no image found on the state.
     useEffect(() => {
         if (!selectedImage) {
             exit();
         }
-    }, [selectedImage]);
-
-    const exit = () => {
-        history.push("/chats");
-    };
+    }, [selectedImage, exit]);
 
     return (
         <div className="chatView">
@@ -40,12 +40,12 @@ const ChatView = () => {
                         {({ remainingTime }) => {
                             if (remainingTime === 0) {
                                 exit();
-                            }else if (remainingTime === 3){
-                                debugger
+                            } else if (remainingTime === 3) {
+                                debugger;
                             }
                             return remainingTime;
                         }}
-                    </CountdownCircleTimer>                        
+                    </CountdownCircleTimer>
                 </div>
             )}
         </div>
