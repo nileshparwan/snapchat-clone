@@ -7,6 +7,7 @@ import {
 import WebcamCapture from './WebcamCapture';
 import Preview from './Preview';
 import "./App.css"; 
+import Chats from './Chats';
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
           <Switch>
             <Route exact path="/test">
               <h1>Yo WHATS UP</h1>
+            </Route>
+
+            <Route exact path="/chats">
+            <Chats />
             </Route>
 
             <Route exact path="/">
