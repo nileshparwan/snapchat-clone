@@ -40,8 +40,6 @@ const ChatView = () => {
                         {({ remainingTime }) => {
                             if (remainingTime === 0) {
                                 exit();
-                            } else if (remainingTime === 3) {
-                                debugger;
                             }
                             return remainingTime;
                         }}
